@@ -1,1 +1,585 @@
-Hello World
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de commande Brew</title>
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Bouton de changement de thème -->
+    <div class="theme-switch">
+        <button id="theme-toggle">Mode Clair</button>
+    </div>
+
+    <h1>Générateur de commande Brew</h1>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <input type="text" id="search" class="search-box" placeholder="Rechercher des programmes...">
+    
+    <!-- Zone de sortie de commande -->
+    <div id="output-section">
+        <div id="output">brew install</div>
+        <button id="reset-btn">Réinitialiser</button>
+        <button id="copy-btn">Copier</button>
+        <button id="export-btn">Exporter</button>
+    </div>
+
+    <!-- Section Navigateurs -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Navigateurs</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="brave-browser">
+                <img src="./medias/png/Brave Browser.png" alt="Brave Browser">
+                <label for="brave">Brave Browser</label>
+                <input type="checkbox" id="brave-browser" value="brave-browser">
+            </div>
+            <div class="program" data-checkbox="firefox">
+                <img src="./medias/png/Firefox.png" alt="Firefox">
+                <label for="firefox">Firefox</label>
+                <input type="checkbox" id="firefox" value="firefox">
+            </div>
+            <div class="program" data-checkbox="google-chrome">
+                <img src="./medias/png/Google Chrome.png" alt="Google Chrome">
+                <label for="chrome">Google Chrome</label>
+                <input type="checkbox" id="google-chrome" value="google-chrome">
+            </div>
+            <div class="program" data-checkbox="opera">
+                <img src="./medias/png/Opera.png" alt="Opera">
+                <label for="opera">Opera</label>
+                <input type="checkbox" id="opera" value="opera">
+            </div>
+            <div class="program" data-checkbox="opera-gx">
+                <img src="./medias/png/Opera GX.png" alt="Opera GX">
+                <label for="opera-gx">Opera GX</label>
+                <input type="checkbox" id="opera-gx" value="opera-gx">
+            </div>
+        </div>
+    </div>
+
+    <!-- Bureautique -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Bureautique</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="adobe-acrobat-reader">
+                <img src="./medias/png/Adobe Acrobat Reader.png" alt="Adobe Acrobat Reader">
+                <label for="adobe-acrobat-reader">Adobe Acrobat Reader</label>
+                <input type="checkbox" id="adobe-acrobat-reader" value="adobe-acrobat-reader">
+            </div>
+            <div class="program" data-checkbox="libreoffice">
+                <img src="./medias/png/LibreOffice.png" alt="LibreOffice">
+                <label for="libreoffice">LibreOffice</label>
+                <input type="checkbox" id="libreoffice" value="libreoffice">
+            </div>
+            <div class="program" data-checkbox="microsoft-office">
+                <img src="./medias/png/Microsoft Office 365.png" alt="Microsoft Office">
+                <label for="microsoft-office">Microsoft Office</label>
+                <input type="checkbox" id="microsoft-office" value="microsoft-office">
+            </div>
+        </div>
+    </div>
+
+    <!-- Productivité -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Productivité</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="logitech-presentation">
+                <img src="./medias/png/Logitech Presentation.png" alt="Logitech Presentation">
+                <label for="logitech-presentation">Logitech Presentation</label>
+                <input type="checkbox" id="logitech-presentation" value="logitech-presentation">
+            </div>
+            <div class="program" data-checkbox="notion">
+                <img src="./medias/png/Notion.png" alt="Notion">
+                <label for="notion">Notion</label>
+                <input type="checkbox" id="notion" value="notion">
+            </div>
+            <div class="program" data-checkbox="obsidian">
+                <img src="./medias/png/Obsidian.png" alt="Obsidian">
+                <label for="obsidian">Obsidian</label>
+                <input type="checkbox" id="obsidian" value="obsidian">
+            </div>
+        </div>
+    </div>
+
+    <!-- Créations et design -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Créations et design</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="adobe-creative-cloud">
+                <img src="./medias/png/Adobe Creative Cloud.png" alt="Adobe Creative Cloud">
+                <label for="adobe-creative-cloud">Adobe Creative Cloud</label>
+                <input type="checkbox" id="adobe-creative-cloud" value="adobe-creative-cloud">
+            </div>
+            <div class="program" data-checkbox="gimp">
+                <img src="./medias/png/GIMP.png" alt="GIMP">
+                <label for="gimp">GIMP</label>
+                <input type="checkbox" id="gimp" value="gimp">
+            </div>
+            <div class="program" data-checkbox="kicad">
+                <img src="./medias/png/KiCad.png" alt="KiCad">
+                <label for="kicad">KiCad</label>
+                <input type="checkbox" id="kicad" value="kicad">
+            </div>
+            <div class="program" data-checkbox="obs">
+                <img src="./medias/png/OBS.png" alt="OBS">
+                <label for="obs">OBS</label>
+                <input type="checkbox" id="obs" value="obs">
+            </div>
+            <div class="program" data-checkbox="prusaslicer">
+                <img src="./medias/png/PrusaSlicer.png" alt="PrusaSlicer">
+                <label for="prusaslicer">PrusaSlicer</label>
+                <input type="checkbox" id="prusaslicer" value="prusaslicer">
+            </div>
+            <div class="program" data-checkbox="yed">
+                <img src="./medias/png/yEd.png" alt="yEd">
+                <label for="yed">yEd</label>
+                <input type="checkbox" id="yed" value="yed">
+            </div>
+        </div>
+    </div>
+  
+    <!-- Communication -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Communication</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="discord">
+                <img src="./medias/png/Discord.png" alt="Discord">
+                <label for="discord">Discord</label>
+                <input type="checkbox" id="discord" value="discord">
+            </div>
+            <div class="program" data-checkbox="cisco-jabber">
+                <img src="./medias/png/Cisco Jabber.png" alt="Cisco Jabber">
+                <label for="cisco-jabber">Cisco Jabber</label>
+                <input type="checkbox" id="cisco-jabber" value="cisco-jabber">
+            </div>
+            <div class="program" data-checkbox="microsoft-teams">
+                <img src="./medias/png/Microsoft Teams.png" alt="Microsoft Teams">
+                <label for="microsoft-teams">Microsoft Teams</label>
+                <input type="checkbox" id="microsoft-teams" value="microsoft-teams">
+            </div>
+            <div class="program" data-checkbox="zoom">
+                <img src="./medias/png/zoom.us.png" alt="Zoom">
+                <label for="zoom">Zoom</label>
+                <input type="checkbox" id="zoom" value="zoom">
+            </div>
+        </div>
+    </div>
+      
+    <!-- VPN -->
+    <div class="section">
+        <div class="section-header">
+            <h2>VPN</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program">
+                <img src="./medias/png/OpenVPN Connect.png" alt="OpenVPN Connect">
+                <label for="openvpn-connect">OpenVPN Connect</label>
+                <input type="checkbox" id="openvpn-connect" value="openvpn-connect">
+            </div>
+            <div class="program">
+                <img src="./medias/png/ProtonVPN.png" alt="ProtonVPN">
+                <label for="protonvpn">ProtonVPN</label>
+                <input type="checkbox" id="protonvpn" value="protonvpn">
+            </div>
+            <div class="program">
+                <img src="./medias/png/Tailscale.png" alt="Tailscale">
+                <label for="tailscale">Tailscale</label>
+                <input type="checkbox" id="tailscale" value="tailscale">
+            </div>
+        </div>
+    </div>
+
+    <!-- Outils système -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Outils système</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="appcleaner">
+                <img src="./medias/png/AppCleaner.png" alt="AppCleaner">
+                <label for="appcleaner">AppCleaner</label>
+                <input type="checkbox" id="appcleaner" value="appcleaner">
+            </div>
+            <div class="program" data-checkbox="duet">
+                <img src="./medias/png/Duet.png" alt="Duet">
+                <label for="duet">Duet</label>
+                <input type="checkbox" id="duet" value="duet">
+            </div>
+            <div class="program" data-checkbox="iterm2">
+                <img src="./medias/png/iTerm2.png" alt="iTerm2">
+                <label for="iterm2">iTerm2</label>
+                <input type="checkbox" id="iterm2" value="iterm2">
+            </div>
+            <div class="program" data-checkbox="maccy">
+                <img src="./medias/png/Maccy.png" alt="Maccy">
+                <label for="maccy">Maccy</label>
+                <input type="checkbox" id="maccy" value="maccy">
+            </div>
+            <div class="program" data-checkbox="raycast">
+                <img src="./medias/png/Raycast.png" alt="Raycast">
+                <label for="raycast">Raycast</label>
+                <input type="checkbox" id="raycast" value="raycast">
+            </div>
+            <div class="program" data-checkbox="rectangle">
+                <img src="./medias/png/Rectangle.png" alt="Rectangle">
+                <label for="rectangle">Rectangle</label>
+                <input type="checkbox" id="rectangle" value="rectangle">
+            </div>
+            <div class="program" data-checkbox="stats">
+                <img src="./medias/png/Stats.png" alt="Stats">
+                <label for="stats">Stats</label>
+                <input type="checkbox" id="stats" value="stats">
+            </div>
+            <div class="program" data-checkbox="btop">
+                <img src="./medias/png/Terminal.png" alt="BTop">
+                <label for="btop">BTop</label>
+                <input type="checkbox" id="btop" value="btop">
+            </div>
+            <div class="program" data-checkbox="fastfetch">
+                <img src="./medias/png/Terminal.png" alt="Fastfetch">
+                <label for="fastfetch">Fastfetch</label>
+                <input type="checkbox" id="fastfetch" value="fastfetch">
+            </div>
+            <div class="program" data-checkbox="figlet">
+                <img src="./medias/png/Terminal.png" alt="Figlet">
+                <label for="figlet">Figlet</label>
+                <input type="checkbox" id="figlet" value="figlet">
+            </div>
+            <div class="program" data-checkbox="htop">
+                <img src="./medias/png/Terminal.png" alt="HTop">
+                <label for="htop">HTop</label>
+                <input type="checkbox" id="htop" value="htop">
+            </div>
+            <div class="program" data-checkbox="neofetch">
+                <img src="./medias/png/Terminal.png" alt="Neofetch">
+                <label for="neofetch">Neofetch</label>
+                <input type="checkbox" id="neofetch" value="neofetch">
+            </div>
+            <div class="program" data-checkbox="powerlevel10k">
+                <img src="./medias/png/Terminal.png" alt="Powerlevel10k">
+                <label for="powerlevel10k">Powerlevel10k</label>
+                <input type="checkbox" id="powerlevel10k" value="powerlevel10k">
+            </div>
+        </div>
+    </div>
+
+    <!-- Développement -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Développement</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="apache-netbeans">
+                <img src="./medias/png/Apache NetBeans.png" alt="Apache NetBeans">
+                <label for="netbeans">Apache NetBeans</label>
+                <input type="checkbox" id="apache-netbeans" value="netbeans">
+            </div>
+            <div class="program" data-checkbox="jetbrains-toolbox">
+                <img src="./medias/png/JetBrains Toolbox.png" alt="JetBrains Toolbox">
+                <label for="jetbrains-toolbox">JetBrains Toolbox</label>
+                <input type="checkbox" id="jetbrains-toolbox" value="jetbrains-toolbox">
+            </div>
+            <div class="program" data-checkbox="github-desktop">
+                <img src="./medias/png/GitHub Desktop.png" alt="GitHub Desktop">
+                <label for="github-desktop">GitHub Desktop</label>
+                <input type="checkbox" id="github-desktop" value="github-desktop">
+            </div>
+            <div class="program" data-checkbox="mamp">
+                <img src="./medias/png/MAMP.png" alt="MAMP">
+                <label for="mamp">MAMP</label>
+                <input type="checkbox" id="mamp" value="mamp">
+            </div>
+            <div class="program" data-checkbox="tableplus">
+                <img src="./medias/png/TablePlus.png" alt="TablePlus">
+                <label for="tableplus">TablePlus</label>
+                <input type="checkbox" id="tableplus" value="tableplus">
+            </div>
+            <div class="program" data-checkbox="visual-studio-code">
+                <img src="./medias/png/Visual Studio Code.png" alt="Visual Studio Code">
+                <label for="visual-studio-code">Visual Studio Code</label>
+                <input type="checkbox" id="visual-studio-code" value="visual-studio-code">
+            </div>
+            <div class="program" data-checkbox="bash">
+                <img src="./medias/png/Terminal.png" alt="Bash">
+                <label for="bash">Bash</label>
+                <input type="checkbox" id="bash" value="bash">
+            </div>
+            <div class="program" data-checkbox="composer">
+                <img src="./medias/png/Terminal.png" alt="Composer">
+                <label for="composer">Composer</label>
+                <input type="checkbox" id="composer" value="composer">
+            </div>
+            <div class="program" data-checkbox="gh">
+                <img src="./medias/png/Terminal.png" alt="GitHub CLI">
+                <label for="gh">GitHub CLI</label>
+                <input type="checkbox" id="gh" value="gh">
+            </div>
+            <div class="program" data-checkbox="laravel">
+                <img src="./medias/png/Terminal.png" alt="Laravel">
+                <label for="laravel">Laravel</label>
+                <input type="checkbox" id="laravel" value="laravel">
+            </div>
+            <div class="program" data-checkbox="npm">
+                <img src="./medias/png/Terminal.png" alt="NPM">
+                <label for="npm">NPM</label>
+                <input type="checkbox" id="npm" value="npm">
+            </div>
+            <div class="program" data-checkbox="python">
+                <img src="./medias/png/Terminal.png" alt="Python">
+                <label for="python">Python</label>
+                <input type="checkbox" id="python" value="python">
+            </div>
+            <div class="program" data-checkbox="php">
+                <img src="./medias/png/Terminal.png" alt="PHP">
+                <label for="php">PHP</label>
+                <input type="checkbox" id="php" value="php">
+            </div>
+            <div class="program" data-checkbox="wget">
+                <img src="./medias/png/Terminal.png" alt="Wget">
+                <label for="wget">Wget</label>
+                <input type="checkbox" id="wget" value="wget">
+            </div>
+        </div>
+    </div>
+
+    <!-- Outils informatiques -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Outils informatiques</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="angry-ip-scanner">
+                <img src="./medias/png/Angry IP Scanner.png" alt="Angry IP Scanner">
+                <label for="angry-ip-scanner">Angry IP Scanner</label>
+                <input type="checkbox" id="angry-ip-scanner" value="angry-ip-scanner">
+            </div>
+            <div class="program" data-checkbox="balena-etcher">
+                <img src="./medias/png/balenaEtcher.png" alt="Balena Etcher">
+                <label for="balena-etcher">Balena Etcher</label>
+                <input type="checkbox" id="balena-etcher" value="balena-etcher">
+            </div>
+            <div class="program" data-checkbox="gns3">
+                <img src="./medias/png/GNS3.png" alt="GNS3">
+                <label for="gns3">GNS3</label>
+                <input type="checkbox" id="gns3" value="gns3">
+            </div>
+            <div class="program" data-checkbox="raspberry-pi-imager">
+                <img src="./medias/png/Raspberry Pi Imager.png" alt="Raspberry Pi Imager">
+                <label for="raspberry-pi-imager">Raspberry Pi Imager</label>
+                <input type="checkbox" id="raspberry-pi-imager" value="raspberry-pi-imager">
+            </div>
+            <div class="program" data-checkbox="wireshark">
+                <img src="./medias/png/Wireshark.png" alt="Wireshark">
+                <label for="wireshark">Wireshark</label>
+                <input type="checkbox" id="wireshark" value="wireshark">
+            </div>
+        </div>
+    </div>
+
+    <!-- Virtualisation -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Virtualisation</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="virtualbox">
+                <img src="./medias/png/VirtualBox.png" alt="VirtualBox">
+                <label for="virtualbox">VirtualBox</label>
+                <input type="checkbox" id="virtualbox" value="virtualbox">
+            </div>
+            <div class="program" data-checkbox="vmware-fusion">
+                <img src="./medias/png/VMware Fusion.png" alt="VMware Fusion">
+                <label for="vmware-fusion">VMware Fusion</label>
+                <input type="checkbox" id="vmware-fusion" value="vmware-fusion">
+            </div>
+        </div>
+    </div>
+
+    <!-- Remote Desktop -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Remote Desktop</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="airdroid">
+                <img src="./medias/png/AirDroid.png" alt="AirDroid">
+                <label for="airdroid">AirDroid</label>
+                <input type="checkbox" id="airdroid" value="airdroid">
+            </div>
+            <div class="program" data-checkbox="anydesk">
+                <img src="./medias/png/AnyDesk.png" alt="AnyDesk">
+                <label for="anydesk">AnyDesk</label>
+                <input type="checkbox" id="anydesk" value="anydesk">
+            </div>
+            <div class="program" data-checkbox="parsec">
+                <img src="./medias/png/Parsec.png" alt="Parsec">
+                <label for="parsec">Parsec</label>
+                <input type="checkbox" id="parsec" value="parsec">
+            </div>
+            <div class="program" data-checkbox="teamviewer">
+                <img src="./medias/png/TeamViewer.png" alt="TeamViewer">
+                <label for="teamviewer">TeamViewer</label>
+                <input type="checkbox" id="teamviewer" value="teamviewer">
+            </div>
+            <div class="program" data-checkbox="vnc-viewer">
+                <img src="./medias/png/VNC Viewer.png" alt="VNC Viewer">
+                <label for="vnc-viewer">VNC Viewer</label>
+                <input type="checkbox" id="vnc-viewer" value="vnc-viewer">
+            </div>
+            <div class="program" data-checkbox="vnc-server">
+                <img src="./medias/png/VNC Server.png" alt="VNC Server">
+                <label for="vnc-server">VNC Server</label>
+                <input type="checkbox" id="vnc-server" value="vnc-server">
+            </div>
+        </div>
+    </div>
+
+    <!-- Divertissement -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Divertissement</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program">
+                <img src="./medias/png/Plex.png" alt="Plex">
+                <label for="plex">Plex</label>
+                <input type="checkbox" id="plex" value="plex">
+            </div>
+            <div class="program">
+                <img src="./medias/png/Spotify.png" alt="Spotify">
+                <label for="spotify">Spotify</label>
+                <input type="checkbox" id="spotify" value="spotify">
+            </div>
+            <div class="program">
+                <img src="./medias/png/VLC.png" alt="VLC">
+                <label for="vlc">VLC</label>
+                <input type="checkbox" id="vlc" value="vlc">
+            </div>
+        </div>
+    </div>
+
+    <!-- Jeux -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Jeux</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="epic-games">
+                <img src="./medias/png/Epic Games Launcher.png" alt="Epic Games">
+                <label for="epic-games">Epic Games</label>
+                <input type="checkbox" id="epic-games" value="epic-games">
+            </div>
+            <div class="program" data-checkbox="lunar-client">
+                <img src="./medias/png/Lunar Client.png" alt="Lunar Client">
+                <label for="lunar-client">Lunar Client</label>
+                <input type="checkbox" id="lunar-client" value="lunar-client">
+            </div>
+            <div class="program" data-checkbox="minecraft">
+                <img src="./medias/png/Minecraft.png" alt="Minecraft">
+                <label for="minecraft">Minecraft</label>
+                <input type="checkbox" id="minecraft" value="minecraft">
+            </div>
+            <div class="program" data-checkbox="nvidia-geforce-now">
+                <img src="./medias/png/Nvidia GeForce Now.png" alt="Nvidia GeForce Now">
+                <label for="nvidia-geforce-now">Nvidia GeForce Now</label>
+                <input type="checkbox" id="nvidia-geforce-now" value="nvidia-geforce-now">
+            </div>
+            <div class="program" data-checkbox="steam">
+                <img src="./medias/png/Steam.png" alt="Steam">
+                <label for="steam">Steam</label>
+                <input type="checkbox" id="steam" value="steam">
+            </div>
+            <div class="program" data-checkbox="ps-remote-play">
+                <img src="./medias/png/PS Remote Play.png" alt="PS Remote Play">
+                <label for="ps-remote-play">PS Remote Play</label>
+                <input type="checkbox" id="ps-remote-play" value="sony-ps-remote-play">
+            </div>
+        </div>
+    </div>
+
+    <!-- Imprimantes -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Imprimantes</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="hp-easy-admin">
+                <img src="./medias/png/HP Easy Admin.png" alt="HP Easy Admin">
+                <label for="hp-easy-admin">HP Easy Admin</label>
+                <input type="checkbox" id="hp-easy-admin" value="hp-easy-admin">
+            </div>
+            <div class="program" data-checkbox="hp-easy-start">
+                <img src="./medias/png/HP Easy Start.png" alt="HP Easy Start">
+                <label for="hp-easy-start">HP Easy Start</label>
+                <input type="checkbox" id="hp-easy-start" value="hp-easy-start">
+            </div>
+            <div class="program" data-checkbox="toshiba-color-mfp">
+                <img src="./medias/png/Printer.png" alt="Toshiba Color MFP">
+                <label for="toshiba-color-mfp">Toshiba Color MFP</label>
+                <input type="checkbox" id="toshiba-color-mfp" value="toshiba-color-mfp">
+            </div>
+        </div>
+    </div>
+
+    <!-- Appareil photo -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Appareil photo</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="canon-eos-utility">
+                <img src="./medias/png/EOS Utility 3.png" alt="Canon EOS Utility 3">
+                <label for="canon-eos-utility-3">Canon EOS Utility 3</label>
+                <input type="checkbox" id="canon-eos-utility-3" value="canon-eos-utility">
+            </div>
+        </div>
+    </div>
+
+    <!-- Autres -->
+    <div class="section">
+        <div class="section-header">
+            <h2>Autres</h2>
+            <button class="toggle-section-button">Afficher/Masquer</button>
+        </div>
+        <div class="programs-grid">
+            <div class="program" data-checkbox="jdownloader2">
+                <img src="./medias/png/JDownloader2.png" alt="JDownloader 2">
+                <label for="jdownloader2">JDownloader 2</label>
+                <input type="checkbox" id="jdownloader2" value="jdownloader2">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="./script.js"></script>
+
+</body>
+</html>
